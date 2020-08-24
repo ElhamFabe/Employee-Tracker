@@ -1,0 +1,24 @@
+Files to create
+folder db:---> done
+ -Schema.sql
+ -Seed.sql
+ index.js
+ connection.js
+
+ outsider database folder:
+ .gitignore---> done
+ index.js---> done
+-README.md
+
+ assets folder:---> done
+ images/videos
+ checklist.txt
+
+ Install
+-npm init -y ---> done
+-npm install express---> done
+
+-npm console.table ---> done
+ --console.table---> done
+
+ -dotenv
