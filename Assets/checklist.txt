@@ -21,4 +21,5 @@ folder db:---> done
 -npm console.table ---> done
  --console.table---> done
 
- -dotenv
+ -dotenv --> done
+ file.env --> done
