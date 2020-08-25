@@ -31,7 +31,8 @@ folder db:---> done
 -Connection.js
     -create connection information for sql databaase -->done
 -index.js
-    -
+    - use as class or constructor for organization  
+    -SQL joins
 
 -apps.js    
     -add department, roles, employees

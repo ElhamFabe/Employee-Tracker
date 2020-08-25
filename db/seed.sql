@@ -1,4 +1,4 @@
-USE employees;
+USE employees_db;
 
 -- department seeds
 

@@ -7,12 +7,12 @@ console.log(process.env)
 // create connection information for sql databaase
 const connection = mysql.createConnection ({
     // host
-    host: process.env.DB_HOST,
+    host: "localhost",
 
     // Port
     Port: 3306,
     // user
-    user: process.env.DB_USER,
+    user: "root",
 
     // password
     password: process.env.DB_KEY,
@@ -23,7 +23,7 @@ const connection = mysql.createConnection ({
 
 connection.connect((err) => {
     if (err) throw err;
-    console.log ('Employee Tracker');
+    console.log ('error connection');
 });
 
 // Setting up connection.query to use promises instead of callbacks
