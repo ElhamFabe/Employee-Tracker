@@ -1,11 +1,14 @@
 const util = require ('util');
 const mysql =require ('mysql');
+const db = require ('db');
 // const { zip } = require('rxjs');
 
 const connection = mysql.createConnection ({
     // host
     host: "localhost",
 
+    // Port
+    Port: 3306,
     // user
     user: "root",
 

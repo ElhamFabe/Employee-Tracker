@@ -2,7 +2,7 @@ USE employees;
 
 -- department seeds
 
-INSERT INTO department
+INSERT INTO department 
     (name)
 VALUES
     ("Sales"),
@@ -16,7 +16,7 @@ VALUES
         ("Sales rep", 35000, 1),
         ("Mechanical Engineer", 120000, 2),
         ("Software Engineer", 150000, 2),
-        ("Jr Engineer", 90000, 2),
+        ("Jr Engineer", 80000, 2),
         ("HR", 85000, 3),
         ("IT", 70000, 4);
 
