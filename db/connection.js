@@ -21,7 +21,10 @@ const connection = mysql.createConnection ({
     database:"employees"
 });
 
-connection.connect();
+connection.connect((err) => {
+    if (err) throw err;
+    console.log ('Employee Tracker');
+});
 
 // Setting up connection.query to use promises instead of callbacks
 // This allows us to use the async/await syntax
