@@ -1,19 +1,21 @@
 const util = require ('util');
 const mysql =require ('mysql');
-const db = require ('db');
-// const { zip } = require('rxjs');
 
+ require  ('dotenv').config();
+console.log(process.env)
+
+// create connection information for sql databaase
 const connection = mysql.createConnection ({
     // host
-    host: "localhost",
+    host: process.env.DB_HOST,
 
     // Port
     Port: 3306,
     // user
-    user: "root",
+    user: process.env.DB_USER,
 
     // password
-    password: "process.env.MYSQL_KEY",
+    password: process.env.DB_KEY,
     
     // database
     database:"employees"

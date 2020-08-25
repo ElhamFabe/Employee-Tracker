@@ -1,30 +1,41 @@
 Files to create
 folder db:---> done
- -Schema.sql
- -Seed.sql
- -index.js
- -connection.js
+    -Schema.sql
+    -Szeed.sql
+    -index.js
+    -connection.js
 
  outsider database folder:
- -.gitignore---> done
- -index.js---> done
--README.md
-
+    -.gitignore---> done
+    -index.js---> done
+    -README.md
+-nodule modules folder: --->done
  assets folder:---> done
  -images/videos
  -.env
- -checklist.txt
+    -checklist.txt
 
- Install
--npm init -y ---> done
--npm install express---> done
--npm console.table ---> done
- --console.table---> done
- -dotenv --> done
- -file.env --> done
+ Install dependecies:
+    -npm init -y ---> done
+    -npm install express---> done
+    -npm install inquirer --->done
+    -npm console.table ---> done
+    -console.table---> done
+    -dotenv --> done
+    -rxjs --->done
 
- schema.sql
- -
+-schema.sql
+    - create tables -->done
+-Seeds.sql
+    -create Insert Into and values-->done
+-Connection.js
+    -create connection information for sql databaase -->done
+-index.js
+    -
 
+-apps.js    
+    -add department, roles, employees
+    -create prompt questions
+    -Update employee role
 
 
