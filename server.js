@@ -155,6 +155,15 @@ async function viewEmployeesByDepartment() {
     const employees = await db.findAllEmployees(departmentId);
     console.log(employees)
 }
+async function viewAllRole () {
+    const roles = await db.findAllRole();
+    console.table(roles);
+}
+async function viewAllEmployees () {
+    const employee = await db.findAllRole();
+    console.table(employee);
+}
+
 
 //update employee roles, employee managers
 
