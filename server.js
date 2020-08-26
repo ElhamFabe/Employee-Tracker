@@ -116,15 +116,15 @@ async function startPrompt() {
     }
 }
 //add departments, roles and employees
-async function addDepartment() {
-    const
-}
-async function addRole() {
-    const 
-}
-async function addEmployee() {
-    const
-}
+// async function addDepartment() {
+//     const
+// }
+// async function addRole() {
+//     const 
+// }
+// async function addEmployee() {
+//     const
+// }
 
 // view departments, roles, employees and employee by managers
 
@@ -170,7 +170,7 @@ async function viewAllEmployees () {
 
 
 //delete departments, roles, employees
-async function 
 
-loadstartPrompt();
+
+loadstartPrompt()
 

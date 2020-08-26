@@ -4,6 +4,7 @@ class dataB {
     constructor(connection) {
         this.connection = connection;
     }
+    
     findAllDepartments() {
         //missing SQL joins
         return this.connection.query("SELECT department.id, department.name FROM employee LEFT JOIN role on employee.role_id = role.id LEFT JOIN department on role.department_id = department.id GROUP BY department.id, department.name");
@@ -42,4 +43,4 @@ class dataB {
     }
 }
 
-module.exports = dataB(connection);
+module.exports = new dataB(connection);
