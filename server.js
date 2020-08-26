@@ -18,7 +18,7 @@ function init() {
 // create async function for prompt and choice
 async function startPrompt() {
     const { choice } = await
-         prompt([
+        prompt([
             {
                 type: 'list',
                 name: 'choice',
@@ -115,25 +115,40 @@ async function startPrompt() {
             return quit();
     }
 }
-
-async function addEmployee () {
+//add departments, roles and employees
+async function addDepartment() {
+    const
+}
+async function addRole() {
     const 
 }
- 
- // view functions
+async function addEmployee() {
+    const
+}
+
+// view departments, roles, employees and employee by managers
+
+// async function viewEmployees() {
+//     const employees = await db.findAllEmployees();
+//     console.table(employees);
+
+//     loadstartPrompt();
+// }
+
 async function viewEmployeesByDepartment() {
     const departments = await db.findAllDepartments();
+    console.table(departments);
     const departmentChoices = departments.map(({ id, name }) => ({
         name: name,
         value: id
     }));
-    
-    const { departmentId } = await prompt ([
+
+    const { departmentId } = await prompt([
         {
             type: "list",
             name: "departments",
             messsage: "Select the department to see employees",
-            choices : departmentChoices
+            choices: departmentChoices
         }
     ]);
 
@@ -141,13 +156,12 @@ async function viewEmployeesByDepartment() {
     console.log(employees)
 }
 
+//update employee roles, employee managers
 
-// // add functions
-// await function viewEmployees() {
-//     const employees = await db.findAllEmployees();
-//     console.table(employees);
 
-//     loadstartPrompt();
-// }
 
+//delete departments, roles, employees
+async function 
+
+loadstartPrompt();
 
