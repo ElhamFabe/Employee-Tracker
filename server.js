@@ -112,19 +112,26 @@ async function startPrompt() {
         case "REMOVE_ROLES":
             return removeRole();
         default:
-            return quit();
+            return exit();
     }
 }
 //add departments, roles and employees
-// async function addDepartment() {
-//     const
-// }
-// async function addRole() {
-//     const 
-// }
-// async function addEmployee() {
-//     const
-// }
+async function addDepartment() {
+    const departments = await db.findAllDepartments();
+}
+async function addRole() {
+     const departments = await db.findAllDepartments();
+}
+async function addEmployee() {
+    const departments = await db.findAllEmployees();
+    const departmentChoices = departments.map(({ id, name }) => ({
+        name: name,
+        value: id
+    }));
+    await db.createRole(role);
+    console.log(role);
+
+}
 
 // view departments, roles, employees and employee by managers
 
@@ -155,13 +162,13 @@ async function viewEmployeesByDepartment() {
     const employees = await db.findAllEmployees(departmentId);
     console.log(employees)
 }
-async function viewAllRole () {
+async function viewRoles () {
     const roles = await db.findAllRole();
     console.table(roles);
 }
-async function viewAllEmployees () {
-    const employee = await db.findAllRole();
-    console.table(employee);
+async function viewEmployees () {
+    const employeeView = await db.findAllEmployees();
+    console.table(employeeView);
 }
 
 
