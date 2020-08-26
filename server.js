@@ -11,8 +11,12 @@ init();
 
 // Display logo text, load start prompt 
 function init() {
-    const logoText = logo({ name: "Employee Manager" }).render();
+    const employeeText = employeeText({ name: "Welcome to Employee Manager" }).render();
     console.log("logo Text", logoText);
+    // add color to employeeText
+    //chalk?
+
+    
     startPrompt();
 }
 

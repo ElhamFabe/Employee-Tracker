@@ -15,7 +15,7 @@ const connection = mysql.createConnection ({
     user: "root",
 
     // password
-    password: "password",
+    password: process.env.MYSQL_KEY,
     
     // database
     database:"employees_db"
