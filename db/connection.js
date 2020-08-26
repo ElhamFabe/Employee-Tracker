@@ -15,10 +15,10 @@ const connection = mysql.createConnection ({
     user: "root",
 
     // password
-    password: process.env.DB_KEY,
+    password: "password",
     
     // database
-    database:"employees"
+    database:"employees_db"
 });
 
 connection.connect((err) => {

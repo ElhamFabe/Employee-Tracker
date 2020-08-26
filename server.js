@@ -5,6 +5,7 @@ const { inherits } = require('util');
 const { async } = require('rxjs');
 const db = require('./db')
 const cTable = require('console.table');
+const { start } = require('repl');
 
 init();
 
@@ -12,7 +13,7 @@ init();
 function init() {
     const logoText = logo({ name: "Employee Manager" }).render();
     console.log("logo Text", logoText);
-    loadstartPrompt();
+    startPrompt();
 }
 
 // create async function for prompt and choice
@@ -112,15 +113,17 @@ async function startPrompt() {
         case "REMOVE_ROLES":
             return removeRole();
         default:
-            return exit();
+            return quit();
     }
 }
 //add departments, roles and employees
 async function addDepartment() {
     const departments = await db.findAllDepartments();
+    startPrompt();
 }
 async function addRole() {
-     const departments = await db.findAllDepartments();
+    const departments = await db.findAllDepartments();
+    startPrompt();
 }
 async function addEmployee() {
     const departments = await db.findAllEmployees();
@@ -128,9 +131,29 @@ async function addEmployee() {
         name: name,
         value: id
     }));
-    await db.createRole(role);
-    console.log(role);
-
+    const role = await prompt([
+        {
+            name: 'title',
+            message: 'Employee first name:'
+        },
+        {
+            name: 'title',
+            message: 'Employee last name:'
+        },
+        {
+            name: 'role',
+            message: 'Employee role:'
+        },
+        {
+            type: "list",
+            name: "department_id",
+            messsage: "Deparment role of employee",
+            choices: departmentChoices
+        },
+    ])
+    await db.createRole(employee);
+    console.log("===================");
+    startPrompt();
 }
 
 // view departments, roles, employees and employee by managers
@@ -145,6 +168,7 @@ async function addEmployee() {
 async function viewEmployeesByDepartment() {
     const departments = await db.findAllDepartments();
     console.table(departments);
+    console.log("===================");
     const departmentChoices = departments.map(({ id, name }) => ({
         name: name,
         value: id
@@ -160,15 +184,28 @@ async function viewEmployeesByDepartment() {
     ]);
 
     const employees = await db.findAllEmployees(departmentId);
-    console.log(employees)
+    // console.log(employees)
+    startPrompt();
 }
-async function viewRoles () {
+async function viewEmployeesByManager() {
+    const departments = await db.findAllDepartments();
+    const departmentChoices = departments.map(({ id, name }) => ({
+        name: name,
+        value: id
+    }));
+
+}
+async function viewRoles() {
     const roles = await db.findAllRole();
     console.table(roles);
+    console.log("===================");
+    startPrompt();
 }
-async function viewEmployees () {
+async function viewEmployees() {
     const employeeView = await db.findAllEmployees();
     console.table(employeeView);
+    console.log("===================");
+    startPrompt();
 }
 
 
@@ -177,7 +214,9 @@ async function viewEmployees () {
 
 
 //delete departments, roles, employees
+function quit() {
+    process.exit(0);
+}
 
-
-loadstartPrompt()
+startPrompt()
 

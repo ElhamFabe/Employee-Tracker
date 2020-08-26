@@ -20,6 +20,7 @@ CREATE TABLE department (
      INDEX dep_ind (department_id),
      CONSTRAINT fk_department foreign key (department_id) REFERENCES department(id) ON DELETE CASCADE
  );
+ 
 
  CREATE TABLE employee (
      id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
