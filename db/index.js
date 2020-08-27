@@ -13,6 +13,10 @@ class dataB {
         //missing SQL joins & manager
         return this.connection.query("SELECT employee.id, employee.first_name, employee.last_name, role.title, department.name AS department, role.salary, CONCAT(manager.first_name, ' ', manager.last_name) AS manager FROM employee LEFT JOIN role on employee.role_id = role.id LEFT JOIN department on role.department_id = department.id LEFT JOIN employee manager on manager.id = employee.manager_id;");
     }
+    //similar to findAllEmplyeesByManager
+    findAllEmployeesByDepartment(department_id){
+        return this.connection.query(`SELECT employee.id, employee.first_name, employee.last_name FROM role department LEFT JOIN employee on department.id =${department_id}`);
+    }
     findAllRole() {
         //missing SQL joins
         return this.connection.query("SELECT role.id, role.title,role.salary FROM role LEFT JOIN department on role.department_id = department.id");

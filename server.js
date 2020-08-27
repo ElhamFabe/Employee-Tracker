@@ -6,6 +6,7 @@ const { async } = require('rxjs');
 const db = require('./db')
 const cTable = require('console.table');
 const { start } = require('repl');
+const { title } = require('process');
 
 init();
 
@@ -158,32 +159,46 @@ async function addDepartment() {
 // }
 async function addEmployee() {
     const employees = await db.findAllEmployees();
-    const managerChoices = employees.map(({ id, name }) => ({
-        name: name,
+    // console.log(employees);
+    const role = await db.findAllRole();
+    // console.log(role);
+    const managerChoices = employees.map(({ id, first_name, last_name }) => ({
+        name: `${first_name}, ${last_name}`,
         value: id
     }));
+    const roleChoices = role.map(({ id, title})=>
+    ({
+        name: title,
+        value: id
+    }));
+    console.log(roleChoices);
     const employee = await prompt([
         {
+            type: 'input',
             name: 'first_name',
             message: 'Employee first name:'
         },
         {
+            type: 'input',
             name: 'last_name',
             message: 'Employee last name:'
         },
         {
+            type: "list",
             name: 'role_id',
-            message: 'Employee role:'
+            message: 'Employee role:',
+            choices: roleChoices
         },
         {
             type: "list",
             name: "manager_id",
-            messsage: "Select employee that is your manager",
+            messsage: "Select employee that the manager",
             choices: managerChoices
         },
     ])
     await db.createEmployee(employee);
     // console.log("===================");
+    console.log(addEmployee);
     startPrompt();
 }
 
@@ -199,12 +214,12 @@ async function addEmployee() {
 async function viewEmployeesByDepartment() {
     const departments = await db.findAllDepartments();
     console.table(departments);
-    console.log("===================");
+    // console.log("===================");
     const departmentChoices = departments.map(({ id, name }) => ({
         name: name,
         value: id
     }));
-
+    
     const { departmentId } = await prompt([
         {
             type: "list",
@@ -214,16 +229,16 @@ async function viewEmployeesByDepartment() {
         }
     ]);
 
-    const employees = await db.findAllEmployees(departmentId);
-    // console.log(employees)
+    const employees = await db.findAllEmployeesByDepartment(departmentId);
+    console.table(employees)
     startPrompt();
 }
 async function viewEmployeesByManager() {
     const departments = await db.findAllDepartments();
-    const departmentChoices = departments.map(({ id, name }) => ({
-        name: name,
-        value: id
-    }));
+    // const departmentChoices = departments.map(({ id, name }) => ({
+    //     name: name,
+    //     value: id
+    // }));
 
 }
 async function viewRoles() {
@@ -245,6 +260,24 @@ async function viewEmployees() {
 
 
 //delete departments, roles, employees
+async function removeEmployee () {
+    const revEmployee = await db.findAllEmployees ();
+    const employeeChoices = revEmployee.map(({ id, title }) => ({
+        name: title,
+        value: id
+    }));
+    const { employeeId } = await prompt ([
+        {
+            type: 'list',
+            name: 'employeedId', 
+            message: 'Delete employee',
+            choices: employeeChoices
+        }
+    ]);
+    await db.deleteEmployee(employeeId);
+}
+
+
 function quit() {
     process.exit(0);
 }
