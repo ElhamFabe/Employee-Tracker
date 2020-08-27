@@ -26,8 +26,10 @@
   install dependecies:
   * npm i 
   * npm install inquirer
+  * npm i mysql
   * npm asciiart logo
-  * npm
+  * npm dotenv
+  * npm rxjs
 
 
   #### Usage :
