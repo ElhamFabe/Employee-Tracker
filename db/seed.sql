@@ -27,11 +27,11 @@ VALUES
             (first_name, last_name, role_id, manager_id)
         VALUES
         ("Ace", "Spade", 1, NULL),
-        ("Jack", "Heart", 1, 1),
-        ("Kingsley", "Clover", 2, 2),
-        ("Diamond", "Queens", 2, NULL),
-        ("Legend", "Teegan", 2, NULL),
-        ("Billy", "SZA", 3, 3),
-        ("Steve", "Vino", 4, 4);
+        ("Jack", "Heart", 2, 1),
+        ("Kingsley", "Clover", 3, NULL),
+        ("Diamond", "Queens", 5, NULL),
+        ("Legend", "Teegan", 4, 2),
+        ("Billy", "SZA", 6, 3),
+        ("Steve", "Vino", 7, 4);
 
 
