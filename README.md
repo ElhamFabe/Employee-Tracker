@@ -45,10 +45,10 @@
   NaN
 
   ### Contributors:
-  Elham T.Hussain :https://github.com/ElhamFabe/ReadMe_Generator
+  Elham T.Hussain : https://github.com/ElhamFabe/Employee-Tracker
 
   #### Questions:
-  Elhamfabe@gmail.com
+ Any questions or concerns on Employee Tracker contanct via email: Elhamfabe@gmail.com
  ---
 
   
