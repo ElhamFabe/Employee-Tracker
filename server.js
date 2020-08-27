@@ -11,13 +11,29 @@ init();
 
 // Display logo text, load start prompt 
 function init() {
-    const employeeText = employeeText({ name: "Welcome to Employee Manager" }).render();
-    console.log("logo Text", logoText);
+    // const employeeText = employeeText({ name: "Welcome to Employee Manager" }).render();
+    // console.log("logo Text", logoText);
     // add color to employeeText
     //chalk?
+    const longText = 'Welcome to Employee Manager';
+ 
+console.log(
+    logo({
+        name: 'Welcome to Employee Manager',
+        font: 'ANSI Shadow',
+        lineChars: 10,
+        padding: 2,
+        margin: 3,
+        borderColor: 'bold-magenta',
+        logoColor: 'bold-cyan',
+        textColor: 'yellow',
+    })
+    .emptyLine()
+    .emptyLine()
+    .center(longText)
+    .render()
+);
 
-    
-    startPrompt();
 }
 
 // create async function for prompt and choice
@@ -121,14 +137,14 @@ async function startPrompt() {
     }
 }
 //add departments, roles and employees
-async function addDepartment() {
-    const departments = await db.findAllDepartments();
-    startPrompt();
-}
-async function addRole() {
-    const departments = await db.findAllDepartments();
-    startPrompt();
-}
+// async function addDepartment() {
+//     const departments = await db.findAllDepartments();
+//     startPrompt();
+// }
+// async function addRole() {
+//     const departments = await db.findAllDepartments();
+//     startPrompt();
+// }
 async function addEmployee() {
     const departments = await db.findAllEmployees();
     const departmentChoices = departments.map(({ id, name }) => ({
