@@ -137,42 +137,53 @@ async function startPrompt() {
     }
 }
 //add departments, roles and employees
-// async function addDepartment() {
-//     const departments = await db.findAllDepartments();
-//     startPrompt();
-// }
+async function addDepartment() {
+    const departments = await db.findAllDepartments();
+    const departmentChoices = departments.map(({ id, name }) => ({
+        name: name,
+        value: id
+    }));
+    const department = await prompt ([
+        {
+            name: 'name',
+            message: 'What department would you like to  '
+        }
+    ])
+    await db.createDepartment(department);
+    startPrompt();
+}
 // async function addRole() {
 //     const departments = await db.findAllDepartments();
 //     startPrompt();
 // }
 async function addEmployee() {
-    const departments = await db.findAllEmployees();
-    const departmentChoices = departments.map(({ id, name }) => ({
+    const employees = await db.findAllEmployees();
+    const managerChoices = employees.map(({ id, name }) => ({
         name: name,
         value: id
     }));
-    const role = await prompt([
+    const employee = await prompt([
         {
-            name: 'title',
+            name: 'first_name',
             message: 'Employee first name:'
         },
         {
-            name: 'title',
+            name: 'last_name',
             message: 'Employee last name:'
         },
         {
-            name: 'role',
+            name: 'role_id',
             message: 'Employee role:'
         },
         {
             type: "list",
-            name: "department_id",
-            messsage: "Deparment role of employee",
-            choices: departmentChoices
+            name: "manager_id",
+            messsage: "Select employee that is your manager",
+            choices: managerChoices
         },
     ])
-    await db.createRole(employee);
-    console.log("===================");
+    await db.createEmployee(employee);
+    // console.log("===================");
     startPrompt();
 }
 

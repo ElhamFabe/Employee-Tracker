@@ -17,7 +17,6 @@ folder db:---> done
 
  Install dependecies:
     -npm init -y ---> done
-    -npm install express---> done
     -npm install inquirer --->done
     -npm console.table ---> done
     -console.table---> done
